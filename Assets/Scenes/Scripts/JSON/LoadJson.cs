@@ -9,6 +9,21 @@ using Newtonsoft.Json;
 [System.Serializable]
 public class LoadJson : MonoBehaviour
 {
+    static public LoadJson instance;
+
+    private void Awake()
+    {
+        if (instance != null)
+        {
+            Destroy(this.gameObject);
+        }
+        else
+        {
+            DontDestroyOnLoad(this.gameObject);
+            instance = this;
+        }
+    }
+
     void Start()
     {
         LoadScript();
