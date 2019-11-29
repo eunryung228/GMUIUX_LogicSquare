@@ -65,6 +65,7 @@
     <Compile Include="Assets\Scenes\Scripts\Sound\AudioManager.cs" />
     <Compile Include="Assets\Scenes\Scripts\Sound\BGMManager.cs" />
     <Compile Include="Assets\Scenes\Scripts\TitleScene.cs" />
+    <Compile Include="Assets\Scenes\Scripts\Tutorial.cs" />
     <None Include="Assets\Scenes\JsonDotNet\link.xml" />
     <Reference Include="Unity.TextMeshPro.Editor">
       <HintPath>D:/Unity/GMUIUX_LogicSquare/GMUIUX_LogicSquare/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>

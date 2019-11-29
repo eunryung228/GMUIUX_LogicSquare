@@ -27,8 +27,6 @@ public class LoadJson : MonoBehaviour
     void Start()
     {
         LoadScript();
-
-        FindObjectOfType<Dialogue>().SetScripts("유령집사", "tutorial", 0);
         //딕셔너리 사용법
         //scripts = scriptDic["감기"];
         //Debug.Log(scripts[0].InnerScripts[0].name);

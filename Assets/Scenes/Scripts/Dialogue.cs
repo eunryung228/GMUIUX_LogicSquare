@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class Dialogue : MonoBehaviour
 {
+    public GameObject m_layer;
     public Text m_text_script;
     public Text m_text_speaker;
     public GameObject m_img_speaker;
@@ -52,6 +53,7 @@ public class Dialogue : MonoBehaviour
     {
         m_isFinished = false;
         m_text_speaker.text = listSpeakers[count];
+        m_layer.SetActive(true);
 
         for (int i = 0; i < listSentences[count].Length; i++)
         {
@@ -81,6 +83,7 @@ public class Dialogue : MonoBehaviour
         m_text_speaker.text = " ";
         listSentences.Clear();
         listSpeakers.Clear();
+        m_layer.SetActive(false);
         m_scriptWindow.SetActive(false);
         m_img_speaker.SetActive(false);
         m_isFinished = false;
@@ -94,6 +97,7 @@ public class Dialogue : MonoBehaviour
         m_text_speaker.text = "";
         m_img_speaker.SetActive(false);
         m_scriptWindow.SetActive(false);
+        m_layer.SetActive(false);
         count = 0;
         m_isFinished = false;
         m_isSkip = false;
