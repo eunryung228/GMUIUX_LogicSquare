@@ -27,16 +27,13 @@ public class LoadJson : MonoBehaviour
     void Start()
     {
         LoadScript();
-        //딕셔너리 사용법
-        //scripts = scriptDic["감기"];
-        //Debug.Log(scripts[0].InnerScripts[0].name);
     }
 
     private string[] scriptName = { "tutorial" };
     private string[] scriptIdx = { "name", "script" };
     private string[] scriptOrder = { "first", "second", "third", "fourth", "fifth", "sixth" };
 
-    private int[] scriptOrderIdx = { 1 };
+    private int[] scriptOrderIdx = { 2 };
 
     public static Dictionary<string, List<Script>> scriptDic = new Dictionary<string, List<Script>>();
 

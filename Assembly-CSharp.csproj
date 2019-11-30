@@ -60,7 +60,11 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Scenes\Scripts\Database.cs" />
     <Compile Include="Assets\Scenes\Scripts\Dialogue.cs" />
+    <Compile Include="Assets\Scenes\Scripts\FadeInOut.cs" />
+    <Compile Include="Assets\Scenes\Scripts\GameScene.cs" />
+    <Compile Include="Assets\Scenes\Scripts\Ingame.cs" />
     <Compile Include="Assets\Scenes\Scripts\JSON\LoadJson.cs" />
     <Compile Include="Assets\Scenes\Scripts\Sound\AudioManager.cs" />
     <Compile Include="Assets\Scenes\Scripts\Sound\BGMManager.cs" />

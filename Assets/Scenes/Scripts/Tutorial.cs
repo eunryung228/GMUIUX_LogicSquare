@@ -6,9 +6,11 @@ using UnityEngine.SceneManagement;
 public class Tutorial : MonoBehaviour
 {
     public GameObject m_layer;
+    private bool isFinished;
 
     void Start()
     {
+        isFinished = false;
         FindObjectOfType<Dialogue>().SetScripts("유령집사", "tutorial", 0);
     }
 
@@ -25,8 +27,13 @@ public class Tutorial : MonoBehaviour
         {
             if(hit.transform.gameObject.tag=="start")
             {
-                SceneManager.LoadScene("GameScene");
+                GameObject.Find("game_ground").GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("etc/game_ground_h3") as Sprite;
+                FindObjectOfType<Dialogue>().SetScripts("유령집사", "tutorial", 1);
+                isFinished = true;
             }
         }
+
+        if (isFinished && m_layer.activeSelf == false)
+            SceneManager.LoadScene("GameScene");
     }
 }
