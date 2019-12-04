@@ -30,12 +30,15 @@ public class Dialogue : MonoBehaviour
 
     public void SetScripts(string npcName, string scriptName, int script_number)
     {
+        count = 0;
+
         m_npcName = npcName;
         m_text_speaker.text = m_npcName;
         m_scriptName = scriptName;
         m_scriptNum = script_number;
 
-        m_img_speaker.GetComponent<Image>().sprite = Resources.Load<Sprite>("Character/" + m_npcName) as Sprite;
+        m_layer.SetActive(true);
+
         m_img_speaker.SetActive(true);
         m_scriptWindow.SetActive(true);
 
@@ -52,11 +55,12 @@ public class Dialogue : MonoBehaviour
     IEnumerator StartScriptsCoroutine()
     {
         m_isFinished = false;
-        m_text_speaker.text = listSpeakers[count];
-        m_layer.SetActive(true);
 
         for (int i = 0; i < listSentences[count].Length; i++)
         {
+            m_text_speaker.text = listSpeakers[count];
+            m_img_speaker.GetComponent<Image>().sprite = Resources.Load<Sprite>("Character/" + listSpeakers[count]) as Sprite;
+
             if (m_isSkip)
             {
                 m_text_script.text= listSentences[count];
@@ -93,6 +97,7 @@ public class Dialogue : MonoBehaviour
     {
         mgrAudio = FindObjectOfType<AudioManager>();
 
+        m_scriptWindow = GameObject.Find("ScriptWindow");
         m_text_script.text = "";
         m_text_speaker.text = "";
         m_img_speaker.SetActive(false);

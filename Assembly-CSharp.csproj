@@ -66,6 +66,7 @@
     <Compile Include="Assets\Scenes\Scripts\GameScene.cs" />
     <Compile Include="Assets\Scenes\Scripts\Ingame.cs" />
     <Compile Include="Assets\Scenes\Scripts\JSON\LoadJson.cs" />
+    <Compile Include="Assets\Scenes\Scripts\MakeBlocks.cs" />
     <Compile Include="Assets\Scenes\Scripts\Sound\AudioManager.cs" />
     <Compile Include="Assets\Scenes\Scripts\Sound\BGMManager.cs" />
     <Compile Include="Assets\Scenes\Scripts\TitleScene.cs" />

@@ -29,11 +29,11 @@ public class LoadJson : MonoBehaviour
         LoadScript();
     }
 
-    private string[] scriptName = { "tutorial" };
+    private string[] scriptName = { "tutorial", "hard" };
     private string[] scriptIdx = { "name", "script" };
-    private string[] scriptOrder = { "first", "second", "third", "fourth", "fifth", "sixth" };
+    private string[] scriptOrder = { "first", "second", "third" };
 
-    private int[] scriptOrderIdx = { 2 };
+    private int[] scriptOrderIdx = { 2, 3 };
 
     public static Dictionary<string, List<Script>> scriptDic = new Dictionary<string, List<Script>>();
 

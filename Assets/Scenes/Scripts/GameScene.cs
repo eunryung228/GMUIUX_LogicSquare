@@ -125,10 +125,8 @@ public class GameScene : MonoBehaviour
         {
             if (hit.transform.gameObject.tag == "start")
             {
-                Debug.Log(hit.transform.gameObject.name);
                 mgrDB.SetData(level, hit.transform.gameObject.name[11]);
-                Debug.Log(level);
-                Debug.Log(hit.transform.gameObject.name[11]);
+                SceneManager.LoadSceneAsync("Ingame");
             }
         }
     }
