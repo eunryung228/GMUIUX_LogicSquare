@@ -165,20 +165,6 @@ public class Ingame : MonoBehaviour
         m_heart = new int[] { 1, 1, 1 };
     }
    
-    /*
-    void Update()
-    {
-        if (!m_layer.activeSelf && !m_gameover.activeSelf)
-        {
-            time += Time.deltaTime;
-            m_text_time.text = (roundTime - Mathf.Ceil(time)).ToString();
-
-            if ((roundTime - Mathf.Ceil(time)) <= 0)
-                m_gameover.SetActive(true);
-        }
-    }
-    */
-
     void Update()
     {
         if (!m_layer.activeSelf && !m_gameover.activeSelf)
