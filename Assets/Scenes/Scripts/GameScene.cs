@@ -114,10 +114,6 @@ public class GameScene : MonoBehaviour
 
     void Update()
     {
-    }
-
-    private void FixedUpdate()
-    {
         Vector2 touchPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         RaycastHit2D hit = Physics2D.Raycast(touchPos, Vector2.zero);
 

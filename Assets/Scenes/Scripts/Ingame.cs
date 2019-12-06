@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class Ingame : MonoBehaviour
 {
@@ -47,7 +48,6 @@ public class Ingame : MonoBehaviour
 
     public string m_clickButton;
     public string m_clickFalse;
-
 
 
     public void SetScripts(string npcName, string scriptName, int script_number)
@@ -164,18 +164,32 @@ public class Ingame : MonoBehaviour
 
         m_heart = new int[] { 1, 1, 1 };
     }
-
+   
+    /*
     void Update()
     {
-        if (!m_layer.activeSelf)
+        if (!m_layer.activeSelf && !m_gameover.activeSelf)
         {
             time += Time.deltaTime;
             m_text_time.text = (roundTime - Mathf.Ceil(time)).ToString();
+
+            if ((roundTime - Mathf.Ceil(time)) <= 0)
+                m_gameover.SetActive(true);
         }
     }
+    */
 
-    private void FixedUpdate()
+    void Update()
     {
+        if (!m_layer.activeSelf && !m_gameover.activeSelf)
+        {
+            time += Time.deltaTime;
+            m_text_time.text = (roundTime - Mathf.Ceil(time)).ToString();
+
+            if ((roundTime - Mathf.Ceil(time)) <= 0)
+                m_gameover.SetActive(true);
+        }
+
         Debug.Log(m_currNum);
         if (m_currNum == (m_rightNum / 2) && !m_isIng)
         {
@@ -223,14 +237,14 @@ public class Ingame : MonoBehaviour
         {
             if (Input.GetMouseButtonDown(0))
             {
-                if (hit.transform.gameObject.tag == "right")
+                if (hit.transform.gameObject.CompareTag("right"))
                 {
                     hit.transform.gameObject.tag = "finish";
                     mgrAudio.Play(m_clickButton);
                     hit.transform.gameObject.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("etc/block_t") as Sprite;
                     m_currNum += 1;
                 }
-                else if (hit.transform.gameObject.tag == "false")
+                else if (hit.transform.gameObject.CompareTag("false"))
                 {
                     hit.transform.gameObject.tag = "finish";
                     mgrAudio.Play(m_clickFalse);
@@ -240,8 +254,19 @@ public class Ingame : MonoBehaviour
             }
             else if (Input.GetMouseButtonDown(1))
             {
-                mgrAudio.Play(m_clickButton);
-                hit.transform.gameObject.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("etc/block_temp") as Sprite;
+                if (!hit.transform.gameObject.CompareTag("finish")) // finish가 아니면
+                {
+                    if (hit.transform.gameObject.GetComponent<SpriteRenderer>().sprite.name == "block_temp") // 이미 체크해놓은 블럭 -> 원상복구
+                    {
+                        mgrAudio.Play(m_clickButton);
+                        hit.transform.gameObject.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("etc/block") as Sprite;
+                    }
+                    else
+                    {
+                        mgrAudio.Play(m_clickButton);
+                        hit.transform.gameObject.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("etc/block_temp") as Sprite;
+                    }
+                }
             }
         }
     }
